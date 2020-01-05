@@ -1,0 +1,14 @@
+//- extends ./views/config/template
+extends ../config/template
+append config
+  -pageTitle = 'Create Project Static'
+  -pageDescription = 'basis for creating new static projects'
+  -pageImage = ''
+
+
+block main
+  +banner('killki')
+  include ../includes/header
+  include ../includes/article
+  include ../includes/aside
+  include ../includes/footer

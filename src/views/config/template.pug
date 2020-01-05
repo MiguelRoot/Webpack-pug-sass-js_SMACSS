@@ -1,0 +1,30 @@
+block config
+  include variables
+  include ../mixins/banner
+doctype html
+html(lang="es")
+  head
+    title=pageTitle
+    meta(charset='utf-8')
+    meta(name='viewport' content='initial-scale=1.0, width=device-width')
+    meta(name='twitter:card' content='summary_large_image')
+    //- meta(name='twitter:site' content='@killki')
+    meta(property='og:title', content=pageTitle)
+    meta(property='og:description', content=pageDescription)
+    meta(property='og:image', content=pageImage)
+    //- link(rel='stylesheet' href='/assets/css/styles.css')
+    link(rel='shortcut icon' href='favicon.ico')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700|Open+Sans:700')
+
+    //- chrome
+    meta(name='mobile-web-app-capable' content='yes')
+    meta(name='theme-color' content='hsla(16, 74%, 49%)')
+    //- iOS
+    meta(name='apple-mobile-web-app-capable' content='yes')
+    meta(name='apple-mobile-web-app-status-bar-style' content='hsla(16, 74%, 49%)')
+    //- windows
+    meta(name='application-name' content='NameWeb')
+    meta(name='msapplication-TileColor' content='hsla(16, 74%, 49%)')
+
+  body
+    block main
