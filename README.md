@@ -1,1 +1,1 @@
-create project static
+create project static (webpack + js + sass + pug)

@@ -1,6 +1,6 @@
 block config
-  include variables
-  include ../mixins/banner
+  include /config/variables
+  include /mixins/banner
 doctype html
 html(lang="es")
   head
@@ -14,7 +14,7 @@ html(lang="es")
     meta(property='og:image', content=pageImage)
     //- link(rel='stylesheet' href='/assets/css/styles.css')
     link(rel='shortcut icon' href='favicon.ico')
-    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700|Open+Sans:700')
+    //- link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:400,400i,700|Open+Sans:700')
 
     //- chrome
     meta(name='mobile-web-app-capable' content='yes')

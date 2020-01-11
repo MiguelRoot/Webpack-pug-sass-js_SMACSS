@@ -1,0 +1,8 @@
+.o-header {
+  height: 50vh;
+  > .container {
+    color: $base-bg-color;
+    background-color: $color-dark;
+    height: 100%;
+  }
+}

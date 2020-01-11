@@ -2,7 +2,11 @@ html {
 	font-size: $base-font-size;
 	line-height: $base-line-height;
 	color: $base-font-color;
-	background-color: $base-background-color;
+	background-color: $base-bg-color;
 	font-family: $base-font-family;
 	position: relative;
+}
+
+ul {
+	list-style: none;
 }

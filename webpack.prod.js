@@ -4,15 +4,19 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const Autoprefixer = require('autoprefixer')
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
+const BASE_DIR = __dirname
+const pages = ["index"];
+
 module.exports = merge(common, {
     mode: 'production',
     output: {
-        filename: "[name].[contentHash].js",
+        filename: "./assets/js/[name].[contentHash].js",
         path: path.resolve(__dirname, "dist")
     },
     module: {
@@ -23,13 +27,14 @@ module.exports = merge(common, {
                     {
                         loader: 'html-loader',
                         options: {
-                            root: path.resolve(__dirname, 'src')
+                            root: path.resolve(BASE_DIR, 'src'),
+                            basedir: path.resolve(BASE_DIR, 'src/views')
                         }
                     },
                     {
                         loader: 'pug-html-loader',
                         options: {
-                            pretty: true
+                            basedir: path.resolve(BASE_DIR, 'src/views')
                         }
                     }
                 ]
@@ -44,14 +49,7 @@ module.exports = merge(common, {
                         options: {
                             plugins: () => [
                                 require('postcss-flexbugs-fixes'),
-                                Autoprefixer({
-                                    browsers: [
-                                        '>1%',
-                                        'last 4 versions',
-                                        'Firefox ESR'
-                                    ],
-                                    flexbox: 'no-2009'
-                                })
+                                Autoprefixer()
                             ],
                         }
                     },
@@ -72,20 +70,27 @@ module.exports = merge(common, {
         minimizer: [
             new OptimizeCssAssetsPlugin(),
             new TerserPlugin(),
+        ]
+    },
+    plugins: [
+        new webpack.optimize.SplitChunksPlugin({
+            names: ["app"],
+            minChunks: Infinity
+        }),
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({ filename: "./assets/css/[name].[contentHash].css" })
+    ].concat(
+        pages.map(page =>
             new HtmlWebpackPlugin({
-                template: path.join(__dirname, 'src/views/pages/index.pug'),
-                file: path.join(__dirname, './index.html'),
+                filename: `${page}.html`,
+                template: path.resolve(BASE_DIR, "src/views/pages", `${page}.pug`),
                 minify: {
                     removeAttributeQuotes: true,
                     collapseWhitespace: true,
                     removeComments: true
                 }
             })
-        ]
-    },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({ filename: "[name].[contentHash].css" })
-    ]
+        )
+    )
 
 })

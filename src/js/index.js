@@ -1,1 +1,3 @@
-console.log('hola des')
+// console.log('hola des')
+
+require('js/app/test')

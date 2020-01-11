@@ -4,6 +4,8 @@ const webpack = require('webpack')
 const chokidar = require('chokidar')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+const BASE_DIR = __dirname;
+const pages = ["index"];
 
 module.exports = merge(common, {
     mode: 'development',
@@ -18,6 +20,7 @@ module.exports = merge(common, {
             })
         }
     },
+
     module: {
         rules: [
             {
@@ -26,15 +29,15 @@ module.exports = merge(common, {
                     {
                         loader: 'html-loader',
                         options: {
-                            root: path.resolve(__dirname, 'src')
+                            root: path.resolve(BASE_DIR, 'src'),
+                            basedir: path.resolve(BASE_DIR, 'src/views')
                         }
                     },
                     {
                         loader: 'pug-html-loader',
                         options: {
-                            basedir: path.resolve(__dirname, 'src/views'),
                             pretty: true,
-                            exports:false
+                            basedir: path.resolve(BASE_DIR, 'src/views')
                         }
                     }
                 ]
@@ -62,12 +65,21 @@ module.exports = merge(common, {
             }
         ]
     },
+
     plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/views/pages/index.pug'),
-            file: path.join(__dirname, './index.html')
+        new webpack.optimize.SplitChunksPlugin({
+            names: ["app"],
+            minChunks: Infinity
         }),
         new webpack.HotModuleReplacementPlugin()
-    ]
+    ].concat(
+        pages.map(page =>
+            new HtmlWebpackPlugin({
+                filename: `${page}.html`,
+                template: path.resolve(BASE_DIR, "src/views/pages", `${page}.pug`)
+                // data: require(`./src/content/home.json`)
+            })
+        )
+    )
 
 })
