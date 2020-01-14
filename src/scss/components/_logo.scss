@@ -1,5 +1,9 @@
-#logo-color path {
+.logo-color path {
     fill: $color-primary;
+}
+
+.logo-color-white path {
+    fill: $base-bg-color;
 }
 
 .logo {
