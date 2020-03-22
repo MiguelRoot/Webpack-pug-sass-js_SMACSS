@@ -1,5 +1,5 @@
 .c-menu {
-    text-align: center;
+  font-size: $size-normal;
   > ul {
     li {
         display: inline-block;
@@ -10,4 +10,7 @@
         text-decoration: none;
     }
   }
+}
+.c-menu--center {
+  text-align: center;
 }

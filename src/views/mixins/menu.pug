@@ -1,4 +1,4 @@
-nav.c-menu(itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation")#main-menu
+nav.c-menu.c-menu--center(itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation")#main-menu
   ul
     each page in pages
       li.main-menu__item(itemprop="url")
@@ -7,3 +7,4 @@ nav.c-menu(itemscope itemtype="http://schema.org/SiteNavigationElement" role="na
               ul 
                 each page2 in page.child
                   li: a(href= page2.url)= page2.title
+                  

@@ -1,13 +1,17 @@
-.logo-color path {
-    fill: $color-primary;
-}
+$logo-color-default: $color-primary;
+$logo-color-while: $color-while;
 
-.logo-color-white path {
-    fill: $base-bg-color;
-}
-
-.logo {
+.c-logo {
     padding-top: 50px;
     width: 200px;
     margin: 0 auto;
+    &-color-default path {
+        @extend .c-logo;
+        fill: $logo-color-default;
+    }
+    
+    &-color-white path {
+        @extend .c-logo;
+        fill: $logo-color-while;
+    }
 }

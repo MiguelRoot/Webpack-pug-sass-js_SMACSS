@@ -1,3 +1,27 @@
+/*
+***  SASS (ITCSS) ***
+settings    variables, fuentes, colores
+tools       mixins y funciones
+base        elementos HTML reset
+objects     layout class box container
+components  Ui class
+Utilities   hack !import
+---
+.o-: objects
+.c-: components
+.u-: utilities
+
+===================================================
+
+*** PUG ***
+base        template, variables array
+include     Elementos  header, aside, foooter, section.
+mixins      reutilizables menu, banner
+pages       includes para armar la pagina
+*/
+
+
+
 /* Settings
 ****************************************************************************/
 @import "node_modules/inuitcss/settings/settings.core";
@@ -25,7 +49,7 @@
 @import "node_modules/inuitcss/elements/elements.headings";
 @import "node_modules/inuitcss/elements/elements.images";
 @import "scss/tools/fonts";
-@import "scss/elements/html.scss";
+@import "scss/elements/html";
 //estilos a etiquetas html
 
 
