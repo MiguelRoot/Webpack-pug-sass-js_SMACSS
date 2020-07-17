@@ -24,39 +24,40 @@ pages       includes para armar la pagina
 
 /* Settings
 ****************************************************************************/
-@import "node_modules/inuitcss/settings/settings.core";
-@import "node_modules/inuitcss/settings/example.settings.global";
+// @import "node_modules/inuitcss/settings/settings.core";
+// @import "node_modules/inuitcss/settings/example.settings.global";
 @import "scss/settings/variables";
 //variable flexgrid
 
 /* Tools
 ****************************************************************************/
 
-@import "node_modules/inuitcss/tools/tools.font-size";
-@import "node_modules/inuitcss/tools/tools.clearfix";
-@import "node_modules/inuitcss/tools/tools.hidden";
+// @import "node_modules/inuitcss/tools/tools.font-size";
+// @import "node_modules/inuitcss/tools/tools.clearfix";
+// @import "node_modules/inuitcss/tools/tools.hidden";
 //funcstiones mixim
 
 /* Generic
 ****************************************************************************/
-@import "node_modules/inuitcss/generic/generic.reset";
+// @import "node_modules/inuitcss/generic/generic.reset";
 //libreria
 
 
 /* Elements
 ****************************************************************************/
 
-@import "node_modules/inuitcss/elements/elements.headings";
-@import "node_modules/inuitcss/elements/elements.images";
+// @import "node_modules/inuitcss/elements/elements.headings";
+// @import "node_modules/inuitcss/elements/elements.images";
 @import "scss/tools/fonts";
 @import "scss/elements/html";
+@import "scss/elements/resetc";
 //estilos a etiquetas html
 
 
 /* Objects
 ****************************************************************************/
 
-@import "node_modules/inuitcss/objects/objects.wrapper";
+// @import "node_modules/inuitcss/objects/objects.wrapper";
 @import "scss/objects/aside";
 @import "scss/objects/banner";
 @import "scss/objects/footer";
@@ -73,4 +74,4 @@ pages       includes para armar la pagina
 /* Utilities
 ****************************************************************************/
 
-@import "node_modules/inuitcss/utilities/utilities.print";
+// @import "node_modules/inuitcss/utilities/utilities.print";

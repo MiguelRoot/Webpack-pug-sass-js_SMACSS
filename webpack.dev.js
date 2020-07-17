@@ -29,9 +29,11 @@ module.exports = merge(common, {
                     {
                         loader: 'html-loader',
                         options: {
-                            root: path.resolve(BASE_DIR, 'src'),
-                            basedir: path.resolve(BASE_DIR, 'src/views')
+                            root: path.resolve(BASE_DIR, 'src')
                         }
+                    },
+                    {
+                        loader: "markdown-loader",
                     },
                     {
                         loader: 'pug-html-loader',
